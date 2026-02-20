@@ -16,7 +16,7 @@
 
 #include "dnsmasq.h"
 
-#if defined(HAVE_BSD_NETWORK) || defined(HAVE_SOLARIS_NETWORK)
+#if defined(HAVE_BSD_NETWORK) || defined(HAVE_SOLARIS_NETWORK) || defined(__QNX__)
 #include <ifaddrs.h>
 
 #include <sys/param.h>

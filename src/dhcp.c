@@ -158,7 +158,7 @@ void dhcp_packet(time_t now, int pxe_fd)
     char control[CMSG_SPACE(sizeof(struct in_pktinfo))];
 #elif defined(HAVE_SOLARIS_NETWORK)
     char control[CMSG_SPACE(sizeof(unsigned int))];
-#elif defined(HAVE_BSD_NETWORK) 
+#elif defined(HAVE_BSD_NETWORK) || defined(__QNX__)
     char control[CMSG_SPACE(sizeof(struct sockaddr_dl))];
 #endif
   } control_u;
