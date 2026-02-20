@@ -125,7 +125,7 @@ typedef unsigned long long u64;
 #include <pwd.h>
 #include <grp.h>
 #include <stdarg.h>
-#if defined(__OpenBSD__) || defined(__NetBSD__) || defined(__sun__) || defined (__sun) || defined (__ANDROID__)
+#if defined(__OpenBSD__) || defined(__NetBSD__) || defined(__sun__) || defined (__sun) || defined (__ANDROID__) || defined(__QNX__)
 #  include <netinet/if_ether.h>
 #else
 #  include <net/ethernet.h>
@@ -1306,7 +1306,7 @@ extern struct daemon {
 #endif
 #if defined(HAVE_LINUX_NETWORK)
   int netlinkfd, kernel_version;
-#elif defined(HAVE_BSD_NETWORK)
+#elif defined(HAVE_BSD_NETWORK) || defined(__QNX__)
   int dhcp_raw_fd, dhcp_icmp_fd, routefd;
 #endif
   struct iovec dhcp_packet;
