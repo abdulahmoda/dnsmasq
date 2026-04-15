@@ -44,9 +44,13 @@
 #include <stdlib.h>
 #include <net/if_arp.h>
 #include <sys/ioctl.h>
+
+#ifndef __QNX__
 #include <linux/types.h>
 #include <linux/netlink.h>
 #include <linux/rtnetlink.h>
+#endif
+
 #include <errno.h>
 
 #define DHCP_CHADDR_MAX          16

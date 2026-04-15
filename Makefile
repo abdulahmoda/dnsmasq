@@ -18,14 +18,14 @@
 
 # Variables you may well want to override.
 
-PREFIX        = /usr/local
+PREFIX        = /usr
 BINDIR        = $(PREFIX)/sbin
 MANDIR        = $(PREFIX)/share/man
 LOCALEDIR     = $(PREFIX)/share/locale
 BUILDDIR      = $(SRC)
 DESTDIR       = 
 CFLAGS        = -Wall -W -O2
-LDFLAGS       = 
+LDFLAGS       = -lsocket
 COPTS         = 
 RPM_OPT_FLAGS = 
 LIBS          = 

@@ -49,8 +49,8 @@
 #define ETHERSFILE "/etc/ethers"
 #define DEFLEASE 3600 /* default DHCPv4 lease time, one hour */
 #define DEFLEASE6 (3600*24) /* default lease time for DHCPv6. One day. */
-#define CHUSER "nobody"
-#define CHGRP "dip"
+#define CHUSER "dnsmasq"
+#define CHGRP "dnsmasq"
 #define TFTP_MAX_CONNECTIONS 50 /* max simultaneous connections */
 #define TFTP_MAX_WINDOW 32 /* max window size to negotiate */
 #define TFTP_TRANSFER_TIME 120 /* Abandon TFTP transfers after this long. Two mins. */
@@ -238,7 +238,7 @@ RESOLVFILE
 #   if defined(__ANDROID__)
 #      define RUNFILE "/data/dnsmasq.pid"
 #    else
-#      define RUNFILE "/var/run/dnsmasq.pid"
+#      define RUNFILE "/run/dnsmasq.pid"
 #    endif
 #endif
 
@@ -285,6 +285,11 @@ HAVE_SOCKADDR_SA_LEN
 #   define HAVE_GETOPT_LONG
 #endif
 #define HAVE_SOCKADDR_SA_LEN
+
+#elif defined(__QNX__)
+#define HAVE_BSD_NETWORK
+#define bzero __builtin_bzero
+#define HAVE_GETOPT_LONG
 
 #elif defined(__APPLE__)
 #define HAVE_BSD_NETWORK
